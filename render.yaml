@@ -1,25 +1,22 @@
 services:
-  # Servicio Web
+  # Servicio Web Spring Boot
   - type: web
     name: desplieg-api
-    env: java
-    buildCommand: ./mvnw clean package -DskipTests
+    runtime: java
+    plan: free
+    buildCommand: chmod +x mvnw && ./mvnw clean package -DskipTests
     startCommand: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/desplieg-0.0.1-SNAPSHOT.jar
     envVars:
       - key: JAVA_VERSION
         value: 17
-      - key: MAVEN_VERSION
-        value: 3.9.0
       - key: DATABASE_URL
         fromDatabase:
           name: desplieg-db
           property: connectionString
-    autoDeploy: true
 
 databases:
   # Base de datos PostgreSQL
   - name: desplieg-db
     databaseName: bookdb
-    user: bookuser
     plan: free
 

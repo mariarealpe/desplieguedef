@@ -40,3 +40,12 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+### Environment Variables ###
+.env
+.env.local
+.env.*.local
+
+### Logs ###
+*.log
+logs/
+
