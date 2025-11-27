@@ -1,0 +1,29 @@
+target/
+.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Documentación
+*.md
+LICENSE
+
+# Scripts locales
+*.bat
+*.ps1
+
+# Otros
+.env
+.env.local
+
