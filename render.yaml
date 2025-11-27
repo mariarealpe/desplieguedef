@@ -4,15 +4,38 @@ services:
     name: desplieg-api
     env: docker
     plan: free
+    # Archivo Dockerfile en la raíz del repositorio
+    dockerfilePath: ./Dockerfile
+    # Contexto de construcción (raíz del proyecto)
+    dockerContext: .
+    # Región del servidor
+    region: oregon
+    # Health check endpoint
+    healthCheckPath: /api/books
+    # Variables de entorno
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: desplieg-db
           property: connectionString
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JAVA_OPTS
+        value: -Xmx512m -Xms256m
+    # Auto-deploy cuando hay cambios en la rama master
+    autoDeploy: true
+    # Rama del repositorio
+    branch: master
 
 databases:
   # Base de datos PostgreSQL
   - name: desplieg-db
     databaseName: bookdb
+    # Usuario de la base de datos
+    user: bookdb_user
+    # Plan gratuito
     plan: free
-
+    # Región del servidor (debe coincidir con el servicio web)
+    region: oregon
+    # Versión de PostgreSQL
+    ipAllowList: []

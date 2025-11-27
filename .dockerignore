@@ -1,29 +1,41 @@
+# Ignorar archivos de construcción local
 target/
-.mvn/wrapper/maven-wrapper.jar
-!.mvn/wrapper/maven-wrapper.properties
+*.class
+*.log
+*.jar
+*.war
+*.ear
 
-# IDE
-.idea
-.vscode
+# Ignorar archivos de IDE
+.idea/
+.vscode/
 *.iml
+*.ipr
+*.iws
 
-# Sistema
+# Ignorar archivos del sistema
 .DS_Store
 Thumbs.db
 
-# Git
-.git
+# Ignorar archivos de Git
+.git/
 .gitignore
+.gitattributes
 
-# Documentación
+# Ignorar documentación
 *.md
-LICENSE
+!README.md
 
-# Scripts locales
+# Ignorar archivos de configuración local
+application-local.properties
+
+# Ignorar archivos de prueba
+*.postman_collection.json
+
+# Ignorar scripts de Windows/batch
 *.bat
 *.ps1
 
-# Otros
-.env
-.env.local
+# Ignorar archivos de Render (ya están en el repo)
+render.yaml
 
